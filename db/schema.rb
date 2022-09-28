@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_28_000821) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_28_022339) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_28_000821) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cats_on_user_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.datetime "ntime"
+    t.datetime "ndate"
+    t.string "subject"
+    t.text "body"
+    t.bigint "cat_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cat_id"], name: "index_notes_on_cat_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,4 +69,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_28_000821) do
   end
 
   add_foreign_key "cats", "users"
+  add_foreign_key "notes", "cats"
 end

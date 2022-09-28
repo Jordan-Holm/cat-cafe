@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   namespace :api do
-    resources :cats
+    resources :cats do
+      resources :notes
+    end
   end
   
 end
