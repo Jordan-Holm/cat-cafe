@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :cats do
       resources :notes
     end
+
+    get '/randomcat', to: 'cats#randomcats'
   end
   
 end

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { CatConsumer } from '../../providers/CatProvider';
 import CatForm from './CatForm';
 import { Button, Modal } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Cats = ({ cats, getAllCats }) => {
   const [adding, setAdd] = useState(false);
@@ -18,6 +19,12 @@ const Cats = ({ cats, getAllCats }) => {
       >
         +
       </Button>
+
+      <Link to='/randomcat'>
+        <Button>
+          Random Cat
+        </Button>
+      </Link>
 
       <Modal show={adding} onHide={() => setAdd(false)}>
         <Modal.Header closeButton>
