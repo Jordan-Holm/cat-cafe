@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { CatConsumer } from '../../providers/CatProvider'; 
 import { Button, Form } from 'react-bootstrap';
 import { useParams, useLocation } from 'react-router-dom';
+import Flash from '../shared/Flash';
 
-const CatForm = ({ addCat, setAdd, updateCat }) => {
+const CatForm = ({ addCat, setAdd, updateCat, errors, setErrors }) => {
   const [cat, setCat] = useState({ name: '', breed: '', registry: '', avatar: '' })
   const { id } = useParams();
   const location = useLocation()
@@ -28,6 +29,14 @@ const CatForm = ({ addCat, setAdd, updateCat }) => {
 
   return (
     <>
+      { errors ?
+        <Flash
+          variant={errors.variant}
+          msg={errors.msg}
+          setErrors={setErrors}
+        />
+      : null
+      }
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Name</Form.Label>

@@ -37,7 +37,7 @@ const CatProvider = ({ children }) => {
     axios.put(`/api/cats/${id}`, { cat })
       .then( res => {
         const newUpdatedCats = cats.map( c => {
-          if (c.id == id) {
+          if (c.id === id) {
             return res.data 
           }
           return c 

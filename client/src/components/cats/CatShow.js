@@ -42,7 +42,9 @@ const CatShow = ({ id, name, breed, registry, avatar, deleteCat }) => {
                     >
                       Delete
                     </Button>
-                    <Button>Notes</Button>
+                    <Link to={`/${id}/notes`}>
+                      <Button>Notes</Button>
+                    </Link>
                   </Col>
                   <Col>
                     <Image src={avatar} width='200px' height='200px' />
