@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
 
     get '/randomcat', to: 'cats#randomcats'
+
+    resources :users, only: :update
   end
   
 end

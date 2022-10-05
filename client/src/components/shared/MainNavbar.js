@@ -8,6 +8,9 @@ const MainNavbar = ({ user, handleLogout }) => {
     if (user) {
       return (
         <>
+          <Link to='/profile'>
+            <li>Profile</li>
+          </Link>
           <Link to='/cats'>
             <li>Cats</li>
           </Link>

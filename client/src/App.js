@@ -11,7 +11,7 @@ import Cats from './components/cats/Cats';
 import CatForm from './components/cats/CatForm';
 import Notes from './components/notes/Notes';
 import RandoCato from './components/cats/RandoCato';
-
+import Profile from './components/auth/Profile';
 const App = () => (
   <>
     <MainNavbar />
@@ -25,6 +25,7 @@ const App = () => (
             <Route path='/:id/updateCat' element={<CatForm />} />
             <Route path='/:catId/notes' element={<Notes />} />
             <Route path='/randomcat' element={<RandoCato />} />
+            <Route path='/profile' element={<Profile />} />
           </Route>
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
